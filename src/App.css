@@ -1,0 +1,87 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.ban h1{
+    font-size: 7rem;
+    font-weight: 800;
+}
+.ban h3{
+    font-size: 300%;
+    font-weight: 400;
+}
+.r2{
+    background-color: #81bae2;
+}
+.r2 h2{
+    font-size: 300%;
+    font-weight: 700;
+}
+.r2 p{
+    font-size: 110%;
+}
+.rrr{
+    background-image: url(./images/bidban.jpg);
+    background-color: rgba(0, 0, 0, 0.358);
+    color: white;
+}
+
+/* auth */
+
+.log{
+    background-color: #e7e2ff;
+    font-family: "Playfair Display", serif;
+  }
+  .pp1{
+    background-color: white;
+  }
+  .pp2{
+    background-color: #5d46ee;
+  }
+  .r1{
+    width: 60%;
+    height: 80%;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  }
+  .bb{
+    background-color: #5d46ee;
+    color: white;
+    font-weight: 700;
+  }
+  .bb:hover{
+    border: #5d46ee 2px solid;
+  }
+  .line{
+    border-top: 2px solid rgb(125, 123, 123);
+  }
+  .pic{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  /* dashboard */
+
+
+  .tab th{
+    font-size: 20px;
+  }
+
+  .under{
+    border-bottom: 2px solid yellow;
+  }
+
+  .dash{
+      margin-top: 80px;
+  }
+
+@media(max-width:450px){
+    .ban{
+        margin-top: 80px;
+    }
+    .ban h1{
+        font-size: 5rem;
+    }
+}
