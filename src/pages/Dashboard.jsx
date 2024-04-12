@@ -11,15 +11,15 @@ function Dashboard() {
       <div style={{minHeight:"100vh"}} className="dash container">
         <div className="row">
           <div className="col-lg-8">
-            <div style={{minHeight:"50vh"}} className='border'>
+            <div style={{minHeight:"50vh"}} className='border mb-2 rounded'>
               <PlacedBids/>
             </div>
-            <div style={{minHeight:"50vh"}} className='border'>
+            <div style={{minHeight:"50vh"}} className='border rounded'>
               <BoughtProducts/>
             </div>
           </div>
           <div className="col-lg-4">
-            <div style={{minHeight:"100vh"}} className='border'><Profile/></div>
+            <div style={{minHeight:"100vh"}} className='border rounded'><Profile/></div>
           </div>
         </div>
       </div>

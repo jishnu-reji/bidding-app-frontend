@@ -12,7 +12,7 @@ function Header({showSearch}) {
     <div style={{zIndex:"10"}} className='bg-dark position-fixed w-100 top-0'>
     <Navbar expand="lg" className="container">
       <Container fluid>
-        <Navbar.Brand href="#"><img style={{height:"50px"}} src={image1} alt=""/></Navbar.Brand>
+        <Navbar.Brand><Link to={'/'}><img style={{height:"50px"}} src={image1} alt=""/></Link></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           { !showSearch && <Form className="ms-auto me-auto d-flex">
@@ -29,9 +29,10 @@ function Header({showSearch}) {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link><Link style={{textDecoration:"none",color:"white"}} to={'/'}>HOME</Link></Nav.Link>
-            <Nav.Link><Link style={{textDecoration:"none",color:"white"}} to={'/sell'}>SELL</Link></Nav.Link>
-            <Nav.Link><Link style={{textDecoration:"none",color:"white"}} to={'/dashboard'}>DASHBOARD</Link></Nav.Link>
+            <Nav.Link><Link className='he fw-bolder' to={'/'}>HOME</Link></Nav.Link>
+            <Nav.Link><Link className='he fw-bolder' to={'/products'}>BID</Link></Nav.Link>
+            <Nav.Link><Link className='he fw-bolder' to={'/sell'}>SELL</Link></Nav.Link>
+            <Nav.Link><Link className='he fw-bolder' to={'/dashboard'}>DASHBOARD</Link></Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

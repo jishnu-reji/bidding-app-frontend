@@ -8,6 +8,7 @@ import image3 from '../images/Image (3).png'
 import image4 from '../images/Image (4).png'
 import AOS from 'aos'
 import 'aos/dist/aos.css';
+import { Link } from 'react-router-dom'
 
 
 function Home() {
@@ -28,7 +29,7 @@ function Home() {
                 <h3 className='ms-1'>Your Bidding Partner</h3>
                 <p className='ms-2'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et nostrum nulla id. Tempore non, cum quos mollitia dolores quisquam id dignissimos eligendi facilis voluptatem, fugiat fugit. Incidunt reprehenderit similique dolore!
                 Nulla impedit blanditiis cupiditate officia. Corrupti quia adipisci esse, expedita, ut, doloremque aliquid dolore consequatur eum mollitia deserunt voluptate quod </p>
-                <button className='btn btn-success ms-2'>Let's get Started</button>
+                <Link to={'/login'}><button className='btn btn-success ms-2'>Let's get Started</button></Link>
               </div>
             </div>
             <div className="col-lg-7 d-flex justify-content-center align-items-center">
@@ -76,7 +77,7 @@ function Home() {
             </div>
           </div>
           <div className="d-flex justify-content-center pt-5">
-            <button className='btn btn-success'>View More Products</button>
+            <Link to={'/products'}><button className='btn btn-success'>View More Products</button></Link>
           </div>
         </div>
 

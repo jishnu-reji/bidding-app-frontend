@@ -27,6 +27,15 @@
     color: white;
 }
 
+/* Header */
+.he{
+  color:white;
+  text-decoration: none;
+}
+.he:hover{
+  color: yellow;
+}
+
 /* auth */
 
 .log{
@@ -64,6 +73,9 @@
 
   /* dashboard */
 
+  .cc{
+    color: #5d46ee;
+  }
 
   .tab th{
     font-size: 20px;
@@ -75,6 +87,12 @@
 
   .dash{
       margin-top: 80px;
+  }
+  .nn{
+    color: #d83f20;
+  }
+  .ps{
+    color: #a76d48;
   }
 
 @media(max-width:450px){

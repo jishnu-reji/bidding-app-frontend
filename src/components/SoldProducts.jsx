@@ -3,7 +3,7 @@ import React from 'react'
 function SoldProducts() {
   return (
     <div>
-        <h3 className='text-center p-3'>Sold Products</h3>
+        <h3 className='text-center cc p-3'>Sold Products</h3>
         <div className='border'>
             <div className='row p-2'>
                 <div className="col-lg-9 d-flex flex-column justify-content-center">

@@ -11,7 +11,7 @@ function PlacedBids() {
 
   return (
     <div className='tab'>
-      <h4 className='text-center p-2'>Placed Bids</h4>
+      <h4 className='text-center cc p-2'>Placed Bids</h4>
       <table className='table'>
         <thead>
           <tr>

@@ -13,14 +13,14 @@ function Profile() {
           <input type="file" style={{display:'none'}}/>
           <img width={'150px'} height={'150px'} src={image1} alt="" />
         </label>
-        <h3 className='pt-2'>Jishnu</h3>
+        <h3 className='pt-2 nn'>Jishnu</h3>
       </div>
-      <h5>Address</h5>
+      <h5 className='ps'>Address</h5>
       <p>Jishnu Bhavan, Chemmananathukara PO Vaikom</p>
-      <h5>Phone</h5>
+      <h5 className='ps'>Phone</h5>
       <p>8129387240</p>
       <div className="d-flex justify-content-between">
-          <h4 className='text-warning'>Edit Profile</h4>
+          <h4 className='cc'>Edit Profile</h4>
           <button onClick={() => setOpen(!open)} className='btn'><i className="fa-solid fa-chevron-down"></i></button>
       </div>
 

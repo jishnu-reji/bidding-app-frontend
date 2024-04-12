@@ -17,7 +17,7 @@ function Sell() {
         </div>
 
         <div className="r4 mb-5 container">
-          <h3 className='mb-3'>All Products</h3>
+          <h3 className='mb-3 cc'>All Products</h3>
           <div className="row">
             <div className="col-lg-9">
               <div className="row">
