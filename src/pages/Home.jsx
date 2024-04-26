@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../components/Header'
 import image from '../images/mobile-group.png'
 import ProductCard from '../components/ProductCard'
@@ -8,10 +8,51 @@ import image3 from '../images/Image (3).png'
 import image4 from '../images/Image (4).png'
 import AOS from 'aos'
 import 'aos/dist/aos.css';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { getHomeProductAPI } from '../services/allAPI'
 
 
 function Home() {
+
+  const [loginStatus,setLoginStatus]= useState(false)
+  const [homeProducts,setHomeProducts] = useState([])
+  const navigate = useNavigate()
+
+  useEffect(()=>{
+    gethomeProducts()
+    if(sessionStorage.getItem("token")){
+      setLoginStatus(true)
+    }
+    else{
+      setLoginStatus(false)
+    }
+  },[])
+
+  const gethomeProducts = async()=>{
+    try{
+      const result = await getHomeProductAPI()
+      console.log(result);
+      if(result.status==200){
+        setHomeProducts(result.data)
+      }
+    }
+    catch(err){
+      console.log(err);
+    }
+  }
+
+  const gotoProducts = ()=>{
+    if(loginStatus){
+      navigate('/products')
+    }
+    else{
+      toast.warning("Login to View more Products")
+    }
+  }
+
+  console.log(homeProducts);
 
   useEffect(() => {
     AOS.init({duration:3000});
@@ -19,7 +60,7 @@ function Home() {
 
   return (
     <>
-      <Header/>
+      <Header showSearch/>
       <div className='common'>
         <div className='container'>
           <div className="row" style={{minHeight:"100vh"}}>
@@ -29,7 +70,11 @@ function Home() {
                 <h3 className='ms-1'>Your Bidding Partner</h3>
                 <p className='ms-2'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et nostrum nulla id. Tempore non, cum quos mollitia dolores quisquam id dignissimos eligendi facilis voluptatem, fugiat fugit. Incidunt reprehenderit similique dolore!
                 Nulla impedit blanditiis cupiditate officia. Corrupti quia adipisci esse, expedita, ut, doloremque aliquid dolore consequatur eum mollitia deserunt voluptate quod </p>
-                <Link to={'/login'}><button className='btn btn-success ms-2'>Let's get Started</button></Link>
+                {
+                  loginStatus?
+                  <Link to={'/sell'}><button className='btn btn-success ms-2'>Sell Products</button></Link>:
+                  <Link to={'/login'}><button className='btn btn-success ms-2'>Let's get Started</button></Link>
+                }
               </div>
             </div>
             <div className="col-lg-7 d-flex justify-content-center align-items-center">
@@ -72,12 +117,18 @@ function Home() {
         <div className="r4 mb-5 container">
           <h1 data-aos="zoom-in-up" className='text-center fw-bolder pb-4'>Live Auctions</h1>
           <div className="row">
-            <div className="col-lg-3">
-              <div data-aos="slide-right"><ProductCard/></div>
-            </div>
+            {homeProducts?.length>0?homeProducts.map((product)=>(
+              <div className="col-lg-3">
+              <div data-aos="slide-right"><ProductCard displayData={product} loginStatus={loginStatus}/></div>
+              </div>
+            ))
+            :
+            <div></div>
+            }
+            
           </div>
           <div className="d-flex justify-content-center pt-5">
-            <Link to={'/products'}><button className='btn btn-success'>View More Products</button></Link>
+            <button onClick={gotoProducts} className='btn btn-success'>View More Products</button>
           </div>
         </div>
 
@@ -145,6 +196,7 @@ function Home() {
       </div>
         </div>     
       </div>
+      <ToastContainer position="top-center" theme="colored" autoClose={3000}/>
     </>
   )
 }

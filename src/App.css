@@ -55,12 +55,14 @@
     box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
   }
   .bb{
-    background-color: #5d46ee;
-    color: white;
-    font-weight: 700;
+    background-color: #5d46ee !important;
+    color: white !important;
+    font-weight: 700 !important;
   }
   .bb:hover{
-    border: #5d46ee 2px solid;
+    border: #5d46ee 2px solid !important;
+    color: #5d46ee !important;
+    background-color: white !important;
   }
   .line{
     border-top: 2px solid rgb(125, 123, 123);

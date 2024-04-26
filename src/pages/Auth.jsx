@@ -5,6 +5,7 @@ import { jwtDecode } from 'jwt-decode';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import image1 from '../images/bidhub.png'
+import { loginAPI, registerAPI } from '../services/allAPI';
 
 
 function Auth({insideRegister}) {
@@ -14,24 +15,59 @@ function Auth({insideRegister}) {
       username:"",password:"",email:""
   })
   console.log(userDetails);
-  const handleLogin =()=>{
-      const {username,password}=userDetails
-      if(username&&password){
-          navigate('/home')
-      }
-      else{
-          toast.warning("Please fill the form completely!!!")
-      }
-  }
-  const handleRegister =()=>{
+
+  const handleRegister =async()=>{
       const {username,password,email}=userDetails
       if(username&&password&&email){
-          navigate('/home')
+        try{
+            const result = await registerAPI(userDetails)
+            console.log(result);
+            if(result.status==200){
+              toast.success(`Welcome ${result.data.username}..Please login to explore our website`)
+              setUserDetails({username:"",email:"",password:""})
+              setTimeout(()=>{
+                navigate('/login')
+              },2000)
+            }
+            else{
+              toast.error(result.response.data)
+              setUserDetails({username:"",email:"",password:""})
+            }
+          }catch(err){
+            console.log(err);
+          }
       }
       else{
           toast.warning("Please fill the form completely!!!")
       }
   }
+
+  const handleLogin = async()=>{
+    const {email,password}=userDetails
+    if(email&&password){
+        try{
+            const result = await loginAPI(userDetails)
+            if(result.status==200){
+              sessionStorage.setItem("existingUser",JSON.stringify(result.data.existingUser))
+              sessionStorage.setItem("token",result.data.token)
+              toast.success(`Welcome ${result.data.existingUser.username}...`)
+              setUserDetails({username:"",email:"",password:""})
+              setTimeout(() => {
+                navigate('/')
+              }, 2000);
+            }
+            else{
+              toast.error(result.response.data)
+            }
+          }catch(err){
+            console.log(err);
+          }
+    }
+    else{
+        toast.warning("Please fill the form completely!!!")
+    }
+  }
+
   console.log(googleDetails);
 
   useEffect(()=>{
@@ -59,12 +95,13 @@ function Auth({insideRegister}) {
                 }
                 
                 <p>{insideRegister?"Register to Website":"Login to explore more"}</p>
-                <input style={{backgroundColor:'#b8b3f8'}} onChange={(e)=>setUserDetails({...userDetails,username:e.target.value})} className='form-control w-75 mb-3' type="text" placeholder='Username'/>
-                <input style={{backgroundColor:'#b8b3f8'}} onChange={(e)=>setUserDetails({...userDetails,password:e.target.value})} className='form-control w-75 mb-3' type="password" placeholder='Password'/>
                 {
                     insideRegister&&
-                    <input style={{backgroundColor:'#b8b3f8'}} onChange={(e)=>setUserDetails({...userDetails,email:e.target.value})} className='form-control w-75 mb-3' type="mail" placeholder='email'/>
+                    <input style={{backgroundColor:'#b8b3f8'}} value={userDetails.username} onChange={(e)=>setUserDetails({...userDetails,username:e.target.value})} className='form-control w-75 mb-3' type="text" placeholder='Username'/>
                 }
+                <input style={{backgroundColor:'#b8b3f8'}} value={userDetails.email} onChange={(e)=>setUserDetails({...userDetails,email:e.target.value})} className='form-control w-75 mb-3' type="mail" placeholder='email'/>
+                <input style={{backgroundColor:'#b8b3f8'}} value={userDetails.password} onChange={(e)=>setUserDetails({...userDetails,password:e.target.value})} className='form-control w-75 mb-3' type="password" placeholder='Password'/>
+
                 {
                     insideRegister?
                     <button onClick={handleRegister} className='btn bb mb-3'>Register Now</button>
