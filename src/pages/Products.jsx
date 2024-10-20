@@ -47,12 +47,12 @@ function Products() {
   return (
     <div>
       <Header/>
-      <div style={{minHeight:"100vh"}} className='dash'>
+      <div style={{minHeight:"100vh"}} className='coo dash'>
       <div className="r4 mb-5 container">
           <h2 className='text-center fw-bolder cc pb-3'>Start Bidding Now</h2>
           <div className="row">
             {allProducts?.length>0 && allProducts.map(product=>(
-              <div className="col-lg-3">
+              <div className="col-lg-3 mb-3">
               <div><ProductCard displayData={product} loginStatus={loginStatus}/></div>
               </div>
             ))}

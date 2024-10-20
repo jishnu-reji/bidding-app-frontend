@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { editProfileAPI } from '../services/allAPI';
 import { SERVER_URL } from '../services/serverURL';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -12,6 +13,7 @@ function Profile() {
 
   const [preview,setPreview] = useState("")
   const [existingImg,setExistingImg] = useState("")
+  const navigate = useNavigate()
   const [userdetails,setUserDetails]=useState({
     username:"",email:"",password:"",address:"",Phone:"",profileImage:""
   })
@@ -77,6 +79,11 @@ function Profile() {
     }
   }
 
+  const logOut = () =>{
+    sessionStorage.clear()
+    navigate('/')
+  }
+
   return (
     <div className='p-3'>
       <div  className='d-flex p-3 flex-column align-items-center'>
@@ -113,6 +120,8 @@ function Profile() {
       </div>
       </Collapse>
       <ToastContainer position="top-center" theme="colored" autoClose={3000}/>
+
+      <div onClick={logOut} className='text-center mt-4'><button className='btn btn-danger'>Log Out</button></div>
 
     </div>
   )

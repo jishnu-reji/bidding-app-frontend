@@ -47,26 +47,40 @@ function BoughtProducts() {
   return (
     <div>
       <h4 className='text-center cc p-2'>Bought Products</h4>
-      
+      <table className='table tab table-striped'>
+      <thead>
+          <tr>
+            <th>Product</th>
+            <th>Bought Price</th>
+            <th><i className='fa-solid fa-ellipsis-vertical'></i></th>
+          </tr>
+        </thead>
+        <tbody>
         {userBoughtProducts?.length>0?userBoughtProducts.map(item=>(
-          <div className='border'>
-          <div className='row p-2'>
-          <div className="col-6 d-flex justify-content-between">
-              <h6>{item.pdName}</h6>
-          </div>
-          <div className="col-3">
-            <p className='m-0'>Price : <span className='fw-bolder text-danger'>{item.price}</span></p>
-          </div>              
-          <div className="col-3 d-flex align-items-center justify-content-center">
-              <div onClick={()=>handleDeleteBought(item._id)} className='btn'><i class="text-danger fa-solid fa-trash-can"></i></div>
-          </div>
-          </div>
-          </div>
+          <tr >
+          <td className='fw-bolder'>{item.pdName}</td>
+          <td className='fw-bolder text-danger'>{item.price}</td>
+          <td> <div onClick={()=>handleDeleteBought(item._id)} className='btn'><i class="text-danger fa-solid fa-trash-can"></i></div></td>
+          </tr>
+          // <div className='border'>
+          // <div className='row p-2'>
+          // <div className="col-6 d-flex justify-content-between">
+          //     <h6>{item.pdName}</h6>
+          // </div>
+          // <div className="col-3">
+          //   <p className='m-0'>Price : <span className='fw-bolder text-danger'>{item.price}</span></p>
+          // </div>              
+          // <div className="col-3 d-flex align-items-center justify-content-center">
+          //     <div onClick={()=>handleDeleteBought(item._id)} className='btn'><i class="text-danger fa-solid fa-trash-can"></i></div>
+          // </div>
+          // </div>
+          // </div>
         ))
         :
         <div className='text-danger p-3'>No items!!!</div>
         }
-            
+        </tbody>
+      </table>
 
     </div>
   )

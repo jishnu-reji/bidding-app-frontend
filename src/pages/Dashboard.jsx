@@ -8,7 +8,7 @@ function Dashboard() {
   return (
     <>
       <Header showSearch/>
-      <div style={{minHeight:"100vh"}} className="dash container">
+      <div style={{minHeight:"100vh"}} className="coo dash container">
         <div className="row">
           <div className="col-lg-8">
             <div style={{minHeight:"50vh"}} className='border mb-2 rounded'>
@@ -19,7 +19,7 @@ function Dashboard() {
             </div>
           </div>
           <div className="col-lg-4">
-            <div style={{minHeight:"100vh"}} className='border rounded'><Profile/></div>
+            <div style={{minHeight:"100vh"}} className='border pcc rounded'><Profile/></div>
           </div>
         </div>
       </div>

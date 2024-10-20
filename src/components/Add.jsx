@@ -62,7 +62,6 @@ function Add() {
           console.log(result);
           if(result.status==200){
             setAddResponse(result)
-            toast.success("Product added Successfully!!!")
             handleClose()
           }
           else{

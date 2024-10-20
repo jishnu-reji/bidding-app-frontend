@@ -64,7 +64,7 @@ function PlacedBids() {
           }
         }
         catch(err){
-          console.log(err);
+          console.log(err); 
         }
       }
     }
@@ -82,7 +82,7 @@ function PlacedBids() {
   return (
     <div className='tab'>
       <h4 className='text-center cc p-2'>Placed Bids</h4>
-      <table className='table'>
+      <table className='table table-striped'>
         <thead>
           <tr>
             <th>Product</th>

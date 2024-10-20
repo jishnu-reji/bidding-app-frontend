@@ -51,6 +51,9 @@ function Header({showSearch}) {
                 <Nav.Link><Link className='he fw-bolder' to={'/dashboard'}>DASHBOARD</Link></Nav.Link>
               </>
             }
+            {!loginStatus &&
+              <Link to={'/login'}><button className='btn btn-danger'>Login</button></Link>
+            }
           </Nav>
         </Navbar.Collapse>
       </Container>

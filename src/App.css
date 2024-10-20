@@ -3,37 +3,84 @@
     padding: 0;
     box-sizing: border-box;
 }
+html::-webkit-scrollbar{
+  display: none;
+}
 .ban h1{
     font-size: 7rem;
     font-weight: 800;
+    color: yellow;
+    text-shadow: #e7e2ff;
 }
 .ban h3{
     font-size: 300%;
-    font-weight: 400;
+    font-weight: 500;
+    color: white;
 }
-.r2{
+.ban p{
+  color: white;
+  font-size: 110%;
+  margin-top: 4%;
+  margin-bottom: 4%;
+  line-height: 170%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.ban button{
+  font-size: 110%;
+  font-weight: 700;
+  border: 3px solid yellow;
+  color: black;
+}
+.r3{
     background-color: #81bae2;
 }
 .r2 h2{
     font-size: 300%;
     font-weight: 700;
+    color: rgb(104, 10, 10);
 }
 .r2 p{
     font-size: 110%;
+    line-height: 170%;
+    font-weight: 600;
 }
 .rrr{
     background-image: url(./images/bidban.jpg);
     background-color: rgba(0, 0, 0, 0.358);
     color: white;
 }
+.cdd{
+  background-color: rgb(240, 233, 224) !important  ;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+
+}
+.pcc{
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+
+}
 
 /* Header */
 .he{
   color:white;
   text-decoration: none;
+  font-size: 130%;
 }
 .he:hover{
   color: yellow;
+}
+
+.banh{
+  background: 
+    /* top, transparent red, faked with gradient */ 
+    linear-gradient(
+      rgba(36, 35, 35, 0.70), 
+      rgba(36, 35, 35, 0.70)
+    ),
+    /* bottom, image */
+    url(./images/banim22.png);
+  /* background-image: url(./images/Online-bidding.jpeg); */
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /* auth */
@@ -96,6 +143,10 @@
   .ps{
     color: #a76d48;
   }
+
+  /* .coo{
+    background-color: bisque;
+  } */
 
 @media(max-width:450px){
     .ban{

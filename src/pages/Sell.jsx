@@ -5,8 +5,8 @@ import SoldProducts from "../components/SoldProducts";
 import { addToSoldAPI, getUserProductAPI } from "../services/allAPI";
 import { SERVER_URL } from "../services/serverURL";
 import { addResponseContext } from "../contexts/ContextAPI";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Sell() {
   const { addResponse, setAddResponse } = useContext(addResponseContext);
@@ -46,7 +46,7 @@ function Sell() {
         if (result.status == 200) {
           console.log(result.data);
           setReaload(result);
-          toast.success("Product Sold")
+          // toast.success("Product Sold")
         }
       } catch (err) {
         console.log(err);
@@ -66,7 +66,7 @@ function Sell() {
   return (
     <div>
       <Header showSearch />
-      <div style={{ minHeight: "100vh" }} className="dash container">
+      <div style={{ minHeight: "100vh" }} className="coo dash container">
         <div className="py-3 d-flex justify-content-center">
           <h3>Hey {user?.username} Sell your Products through BidHub</h3>
           <Add />
@@ -81,7 +81,7 @@ function Sell() {
                   userProducts.map((product) => (
                     <div className="col-lg-4">
                       <div>
-                        <div className="card d-flex p-3 flex-column align-items-center">
+                        <div className="card pcc mb-3 d-flex p-3 flex-column align-items-center">
                           <h4 className="fw-bolder">{product.productName}</h4>
                           <p className="mb-2">MRP : {product.mrp}</p>
                           <img
@@ -127,7 +127,7 @@ function Sell() {
           </div>
         </div>
       </div>
-      <ToastContainer position="top-center" theme="colored" autoClose={3000} />
+      <ToastContainer position="top-center" theme="colored" autoClose={3000}/>
     </div>
   );
 }

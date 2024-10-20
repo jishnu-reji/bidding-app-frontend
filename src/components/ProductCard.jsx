@@ -6,6 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { addBidAPI } from '../services/allAPI';
 import { addResponseContext } from '../contexts/ContextAPI';
+// import socket from '../socket/socket';
 
 function ProductCard({displayData,loginStatus}) {
 
@@ -33,6 +34,7 @@ function ProductCard({displayData,loginStatus}) {
           if(result.status==200){
             toast.success("Bid Placed Successfully!!!")
             setAddResponse(result)
+            // socket.emit('change',{result})
             setTimeout(() => {
               handleClose()
             }, 3000);
@@ -61,6 +63,7 @@ function ProductCard({displayData,loginStatus}) {
 
   const handleBid = () =>{
     if(loginStatus){
+      
       addbid()
     }
     else{
@@ -70,7 +73,7 @@ function ProductCard({displayData,loginStatus}) {
 
   return (
     <div>
-        <div className="card d-flex p-3 flex-column align-items-center">
+        <div className="card pcc d-flex p-3 flex-column align-items-center">
             <h3 className='fw-bolder'>{displayData?.productName}</h3>
             <p className='mb-2'>MRP : {displayData?.mrp}</p>
             <img style={{height:"270px",maxWidth:"100%"}} className='img-fluid' src={`${SERVER_URL}/uploads/${displayData.productImage}`} alt="" />
